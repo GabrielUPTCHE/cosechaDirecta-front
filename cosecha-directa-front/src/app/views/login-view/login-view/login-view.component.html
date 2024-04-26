@@ -1,0 +1,29 @@
+<div class="login-content">
+    <p-card>
+        <h2>Iniciar Sesión</h2>
+
+        <div class="inputs-container">
+            <div class="inputs-login">
+                <span class="p-float-label">
+                    <input pInputText id="username" placeholder="Digita tu usuario" [class]="classInputs" [(ngModel)]="userName" />
+                    <label for="username">Usuario</label>
+                </span>
+            </div>
+
+            <div class="inputs-login">
+                <span class="p-float-label">
+                    <p-password [(ngModel)]="password" placeholder="Digita tu contraseña" [class]="classInputs" [toggleMask]="true" [feedback]="false"></p-password>
+                    <label for="password">Contraseña</label>
+                </span>
+            </div>
+        </div>
+
+        <div class="flex flex-column align-items-center justify-content-center">
+            <button pButton pRipple label="Iniciar sesion" [rounded]="true" class="p-button-success w-10rem h-3rem m-3" (click)="validateUser()"></button>
+            <div class="flex flex-row ">
+                <span>Si no estas registrado</span> <p-button label="Registrate"  class="align-content-center" [link]="true" (onClick)="showRegisterDialog()" ></p-button>
+            </div>
+        </div>
+
+    </p-card>
+</div>
