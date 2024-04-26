@@ -1,0 +1,46 @@
+<div class="register-content">
+    <p-card styleClass="register-form">
+        <h3>Registrate como {{validateTypeUser()}} </h3>
+
+        <div class="user-form">
+            <div class="inputs-container">
+                <div class="inputs-login">
+                    <span class="p-float-label">
+                        <input pInputText id="username" placeholder="Digita tu usuario"  [(ngModel)]="userName" />
+                        <label for="username">Usuario</label>
+                    </span>
+                </div>
+
+                <div class="inputs-login">
+                    <span class="p-float-label">
+                        <input pInputText id="username" placeholder="Digita tu usuario"  [(ngModel)]="userName" />
+                        <label for="username">Nombre completo</label>
+                    </span>
+                </div>
+    
+                <div class="inputs-login">
+                    <span class="p-float-label">
+                        <p-password [(ngModel)]="password" placeholder="Digita tu contraseña"  [toggleMask]="true" [feedback]="false"></p-password>
+                        <label for="password">Contraseña</label>
+                    </span>
+                </div>
+
+                <div class="inputs-login">
+                    <span class="p-float-label">
+                        <p-password [(ngModel)]="password" placeholder="Digita tu contraseña"  [toggleMask]="true" [feedback]="false"></p-password>
+                        <label for="password">Repetir contraseña</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+       @if(validateTypeUser() === "agricultor"){
+        <div class="producer-form">
+            <h3>Informacion adicional</h3>
+        </div>
+       }
+
+        
+
+    </p-card>
+</div>
