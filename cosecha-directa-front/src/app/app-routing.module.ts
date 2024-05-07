@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterModule, Routes } from '@angular/router';
 import { LoginViewComponent } from './views/login-view/login-view/login-view.component';
 import { MainPageComponent } from './views/main-page/main-page/main-page.component';
 import { RegisterUserComponent } from './views/register-user/register-user.component';
@@ -14,4 +14,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  
+
+ }

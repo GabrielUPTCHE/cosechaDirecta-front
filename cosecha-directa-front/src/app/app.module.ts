@@ -12,17 +12,25 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { HttpClientModule } from '@angular/common/http';
-import { UserServiceService } from './services/user-service.service';
+import { UserServiceService } from './services/user/user-service.service';
 import { ViewsModule } from './views/views.module';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ComponentsModule } from './components/components.module';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { SharedModule } from './shared/shared.module';
+import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
+import { DividerModule } from 'primeng/divider';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BreadcrumbComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     LoginViewModule ,
@@ -35,7 +43,10 @@ import { ComponentsModule } from './components/components.module';
     ViewsModule,
     DynamicDialogModule,
     ComponentsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BreadcrumbModule,
+    DividerModule,
+    DropdownModule
   ],
   exports:[
   ],

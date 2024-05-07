@@ -7,7 +7,10 @@ import { MainPageComponent } from './main-page/main-page/main-page.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { FormsModule } from '@angular/forms';
-
+import { DividerModule } from 'primeng/divider';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -22,6 +25,10 @@ import { FormsModule } from '@angular/forms';
     PasswordModule,
     DynamicDialogModule,
     FormsModule,
+    DividerModule,
+    ButtonModule,
+    RippleModule,
+    DropdownModule
   ]
 })
 export class ViewsModule { }

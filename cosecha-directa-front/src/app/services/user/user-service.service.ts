@@ -14,8 +14,8 @@ export class UserServiceService {
   constructor(private httpService: HttpClient) { }
 
   public validateUser(username:string, password:string):Observable<any>{
-    const body = {username:username, password};
-    return this.httpService.post(`${this.url}user/validate-user`,body )
+    const body = {username, password};
+    return this.httpService.post(`${this.url}authentication/login`,body )
   }
 
 
