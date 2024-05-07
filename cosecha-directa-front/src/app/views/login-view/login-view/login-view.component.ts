@@ -15,6 +15,7 @@ export class LoginViewComponent implements OnInit {
 
   userName: string = '';
   password: string = '';
+  isEmptyUser:boolean;
 
   classInputs: string = '';
   ref: DynamicDialogRef | undefined;
