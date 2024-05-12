@@ -1,3 +1,6 @@
+
+
+
 <div class="login-content">
     <p-card>
         <h2>Iniciar Sesión</h2>
@@ -6,14 +9,14 @@
             <div class="inputs-login">
                 <span class="p-float-label">
                     <input pInputText id="username" placeholder="Digita tu usuario" [class]="classInputs" [(ngModel)]="userName" />
-                    <label for="username">Usuario</label>
+                    <label >Usuario</label>
                 </span>
             </div>
 
             <div class="inputs-login">
                 <span class="p-float-label">
-                    <p-password [(ngModel)]="password" placeholder="Digita tu contraseña" [class]="classInputs" [toggleMask]="true" [feedback]="false"></p-password>
-                    <label for="password">Contraseña</label>
+                    <p-password [(ngModel)]="password" placeholder="Digita tu contraseña" [class]="classInputs" [toggleMask]="true" [feedback]="false" autocomplete="new-password"></p-password>
+                    <label>Contraseña</label>
                 </span>
             </div>
         </div>
@@ -27,3 +30,5 @@
 
     </p-card>
 </div>
+
+<p-toast key="2"/>

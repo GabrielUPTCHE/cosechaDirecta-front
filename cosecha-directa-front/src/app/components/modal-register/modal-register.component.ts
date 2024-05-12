@@ -14,6 +14,7 @@ export class ModalRegisterComponent {
 
   navigateRegister(typeUser:string){
     this.ref.close();
+    localStorage.setItem('userTypeCreate', typeUser);
     this.userService.typeUserCreate = typeUser;
     this.router.navigate(['registrar-usuario'])
   }

@@ -9,4 +9,5 @@ export interface User {
     description?: string;
     user_img?: string;
     role: string;
+    location:string;
 }

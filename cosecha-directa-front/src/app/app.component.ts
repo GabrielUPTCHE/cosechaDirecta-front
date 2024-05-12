@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BreadcrumbService } from './services/breadcrumb/breadcrumb.service';
 
@@ -10,14 +10,27 @@ import { BreadcrumbService } from './services/breadcrumb/breadcrumb.service';
 export class AppComponent implements OnInit{
   title = 'cosecha-directa-front';
 
-
   constructor ( private router: Router, private breadcrumbService: BreadcrumbService){}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && event?.url === '/') {
         this.breadcrumbService.hideBreadcrumb(false);
-        console.log('La ruta ha cambiado:', event.url);
+      }
+      if (event instanceof NavigationEnd && event?.url !== '/') {
+        let items = event?.url.split('/')
+        console.log('items:', items);
+        let menuItems = items.map((element, index) => {
+          if (element === '') {
+            return {label:'login', routerLink:'/'}
+          }else{
+            return {label:element, routerLink:element}
+          }
+        })
+        console.log(menuItems )
+        this.breadcrumbService.hideBreadcrumb(true);
+        this.breadcrumbService.setMenuItems(menuItems)
+      /* this.breadcrumbService.setMenuItems([{ label: 'login', routerLink: '/' }, { label: `registro de ${this.validateTypeUser()}` }]) */
       }
     });
   }

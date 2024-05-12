@@ -1,8 +1,13 @@
+
 .register-content {
-    width: 98vw;
+    width: 98.9vw;
     display: flex;
+    padding: 0px;
+    margin: 0px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background-color: #ceefda;
 }
 
 ::ng-deep .register-form {
@@ -15,6 +20,14 @@
     margin: 28px 0px 28px 0px;
 }
 
+.input-col {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.user-form {
+    margin: 0rem 5rem 0rem 5rem;
+}
+
 ::ng-deep .p-inputtext{
     font-size: 0.8rem !important;
     width: 100%;
@@ -22,12 +35,11 @@
 }
 
 ::ng-deep .p-password {
-    width: 13.7vw;
     margin: 0px 10px 0px 0px;
 }
 
 ::ng-deep .p-dropdown {
-    width: 12vw;
+    width: 100%;
     margin: 0px 8px 0px 8px;
 }
 
@@ -36,11 +48,49 @@
     margin: 20px 20px 20px 20px;
 }
 
-.aciton-container {
-    padding: 20px;
+::ng-deep .p-card {
+    margin: 3rem;
 }
 
-h3, h2 {
+
+.action-container {
+    ::ng-deep .p-button {
+        width: 90%;
+        margin: 5%;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
     text-align: center;
-    padding: 20px 0px 60px 0px ;
+    padding: 20px 0px 0px 0px ;
+    margin-top: 20px;
+    color: #5da377 ;
+    font-size: 1.8rem;
+}
+h2{
+    text-align: center;
+    padding: 0px 0px 20px 0px ;
+    font-size: 1.4rem;
+}
+
+.aditional-data-label {
+    padding: 0rem 0rem 1rem 1rem;
+}
+.aditional-data-label-description {
+    padding: 1rem 0rem 1rem 1rem;
+}
+
+.image-input{
+    width: 28rem;
+}
+
+.error-message {
+    color: #f87171;
+}
+
+.message-error-toast{
+    font-size: 10px;
 }
