@@ -1,0 +1,12 @@
+.hide-breadcrumb {
+    opacity: 0;
+}
+
+.show-breadcrumb {
+    opacity: 1;
+}
+
+
+::ng-deep .p-breadcrumb{
+    border: none !important;
+}
