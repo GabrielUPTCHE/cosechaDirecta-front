@@ -8,23 +8,24 @@
         <div class="inputs-container">
             <div class="inputs-login">
                 <span class="p-float-label">
-                    <input pInputText id="username" placeholder="Digita tu usuario" [class]="classInputs" [(ngModel)]="userName" />
+                    <input [disabled]="loadingLogin" pInputText id="username" placeholder="Digita tu usuario" [class]="classInputs" [(ngModel)]="userName" />
                     <label >Usuario</label>
                 </span>
             </div>
 
             <div class="inputs-login">
                 <span class="p-float-label">
-                    <p-password [(ngModel)]="password" placeholder="Digita tu contraseña" [class]="classInputs" [toggleMask]="true" [feedback]="false" autocomplete="new-password"></p-password>
+                    <p-password [disabled]="loadingLogin" [(ngModel)]="password" placeholder="Digita tu contraseña" [class]="classInputs" [toggleMask]="true" [feedback]="false" autocomplete="new-password"></p-password>
                     <label>Contraseña</label>
                 </span>
             </div>
         </div>
 
         <div class="flex flex-column align-items-center justify-content-center">
-            <button pButton pRipple label="Iniciar sesion" [rounded]="true" class="p-button-success w-10rem h-3rem m-3" (click)="validateUser()"></button>
+            <button pButton pRipple label="Iniciar sesion" [rounded]="true" [disabled]="loadingLogin"
+             class="p-button-success w-10rem h-3rem m-3" (click)="validateUser()"></button>
             <div class="flex flex-row ">
-                <span>Si no estas registrado</span> <p-button label="Registrate"  class="align-content-center" [link]="true" (onClick)="showRegisterDialog()" ></p-button>
+                <span>Si no estas registrado</span> <p-button label="Registrate" [disabled]="loadingLogin"  class="align-content-center" [link]="true" (onClick)="showRegisterDialog()" ></p-button>
             </div>
         </div>
 
