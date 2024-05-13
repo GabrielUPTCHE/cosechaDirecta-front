@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit, VERSION } from '@angular/core';
+import { Product } from './product';
+import { ProductService } from './product.service';
+
 
 @Component({
   selector: 'app-main-page',
@@ -7,4 +10,6 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
 
+
+  
 }

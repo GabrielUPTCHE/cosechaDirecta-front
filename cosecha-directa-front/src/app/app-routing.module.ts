@@ -5,8 +5,9 @@ import { MainPageComponent } from './views/main-page/main-page/main-page.compone
 import { RegisterUserComponent } from './views/register-user/register-user.component';
 
 const routes: Routes = [
+  
   {path:'', component:LoginViewComponent},
-  {path:'pagina-principal', component:MainPageComponent},
+  {path:'Pagina-Principal', component:MainPageComponent}, 
   {path:'registrar-usuario', component:RegisterUserComponent}
 ];
 
