@@ -21,6 +21,7 @@ export class LoginViewComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
 
   public isErrorLogin: boolean = false;
+  loadingLogin:boolean = false;
 
   constructor(
     private messageService: MessageService,
@@ -45,15 +46,19 @@ export class LoginViewComponent implements OnInit {
 
 
   validateUser(): void {
+    this.loadingLogin = true;
     this.classInputs = "";
     this.userService.validateUser(this.userName, this.password).subscribe(response => {
       sessionStorage.setItem('token', response.token);
       this.router.navigate(['pagina-principal'])
       this.router.getCurrentNavigation
+      this.loadingLogin = false;
     }, error => {
       this.classInputs = "ng-invalid ng-dirty";
+      this.loadingLogin = false;
+      this.showAlert('error', 'El nombre de usuario o contraseña son incorrectos.', 'Error al iniciar sesion.')
     }
-    )
+  )
   }
 
   showRegisterDialog(): void {

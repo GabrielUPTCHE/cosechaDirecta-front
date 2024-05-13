@@ -18,20 +18,37 @@ export class AppComponent implements OnInit{
         this.breadcrumbService.hideBreadcrumb(false);
       }
       if (event instanceof NavigationEnd && event?.url !== '/') {
-        let items = event?.url.split('/')
-        console.log('items:', items);
-        let menuItems = items.map((element, index) => {
-          if (element === '') {
-            return {label:'login', routerLink:'/'}
-          }else{
-            return {label:element, routerLink:element}
-          }
-        })
-        console.log(menuItems )
-        this.breadcrumbService.hideBreadcrumb(true);
-        this.breadcrumbService.setMenuItems(menuItems)
-      /* this.breadcrumbService.setMenuItems([{ label: 'login', routerLink: '/' }, { label: `registro de ${this.validateTypeUser()}` }]) */
+        this.generateBreadcrumb(event)
+      }
+      if(event instanceof NavigationEnd){
+        this.validateHeaderHide(event);
       }
     });
+  }
+
+  generateBreadcrumb(event: NavigationEnd): void {
+    let items = event?.url.split('/')
+    let menuItems = items.map((element, index) => {
+      if (element === '') {
+        return {label:'login', routerLink:'/'}
+      }else{
+        return {label:element, routerLink:element}
+      }
+    })
+    this.breadcrumbService.hideBreadcrumb(true);
+    this.breadcrumbService.setMenuItems(menuItems)
+  }
+
+  validateHeaderHide(event: NavigationEnd): void {
+    if(event?.url === '/' || event?.url === 'registrar-usuario'){
+      console.log('entro en if', event)
+      this.breadcrumbService.isHideFooter.set(true);
+      this.breadcrumbService.isHideHeader.set(true);
+    }else{
+      console.log('entro en else', event)
+      this.breadcrumbService.isHideFooter.set(false);
+      this.breadcrumbService.isHideHeader.set(false);
+
+    }
   }
 }
