@@ -18,8 +18,6 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ComponentsModule } from './components/components.module';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -37,8 +35,7 @@ import { ComponentsModule } from './components/components.module';
     ViewsModule,
     DynamicDialogModule,
     ComponentsModule,
-    BrowserAnimationsModule,
-    
+    BrowserAnimationsModule
   ],
   exports:[
   ],
