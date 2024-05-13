@@ -17,7 +17,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ProgressSpinnerModule
   ],
   exports:[
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
