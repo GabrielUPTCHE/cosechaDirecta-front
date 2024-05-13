@@ -5,9 +5,11 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { MainPageComponent } from './views/main-page/main-page/main-page.component';
 
 const routes: Routes = [
+  
   {path:'', component:LoginViewComponent},
-  {path:'registrar-usuario', component:RegisterUserComponent},
-  {path:'pagina-principal', component:MainPageComponent}
+  {path:'Pagina-Principal', component:MainPageComponent}, 
+  {path:'registrar-usuario', component:RegisterUserComponent}
+
 ];
 
 @NgModule({

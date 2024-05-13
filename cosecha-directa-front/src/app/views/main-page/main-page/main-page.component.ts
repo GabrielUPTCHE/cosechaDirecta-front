@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component ,OnInit, VERSION } from '@angular/core';
+import { Product } from './product';
+import { ProductService } from './product.service';
 import {jwtDecode} from 'jwt-decode';
 
 @Component({
@@ -14,4 +16,6 @@ export class MainPageComponent implements OnInit {
       console.log('decode user:', decodeUser);
   }
 
+
+  
 }
