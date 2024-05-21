@@ -1,0 +1,40 @@
+<div class="product">
+    
+    <p-card [header]="product.product_name">
+        <ng-template pTemplate="header">
+            <img alt="Card" class="img-card-module" [src]="product.product_images[0].url_image" />
+        </ng-template>
+        <div class="content">
+            <div class="row-product">
+                <p >
+                    {{product.description}}
+                </p>
+            </div>
+            <div class="row-product">
+                <p class="label-green">
+                    Variedad:
+                </p>
+                <p >
+                     {{product.variety}}
+                </p>
+            </div>
+            <div class="row-product">
+                <p class="label-green">Periodo de tiempo: </p>
+                <p >
+                     {{product.time_period_size}} {{getPeriodType()}}
+                </p>
+            </div>
+            <div class="row-product">
+                <p-button label="Ver detalles" severity="success" ngClass="w-full" (onClick)="navigateToProduct()"  />
+            </div>
+            <div>
+                
+            </div>
+
+        </div>
+        <div>
+            <img  alt="">
+        </div>
+
+    </p-card>
+</div>

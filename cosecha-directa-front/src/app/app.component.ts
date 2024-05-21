@@ -14,16 +14,20 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd && event?.url === '/') {
+      if (event instanceof NavigationEnd && this.isHideBreacrumb(event) ) {
         this.breadcrumbService.hideBreadcrumb(false);
       }
-      if (event instanceof NavigationEnd && event?.url !== '/') {
+      if (event instanceof NavigationEnd && !this.isHideBreacrumb(event)) {
         this.generateBreadcrumb(event)
       }
       if(event instanceof NavigationEnd){
         this.validateHeaderHide(event);
       }
     });
+  }
+
+  isHideBreacrumb(event: NavigationEnd): boolean {
+    return event?.url === '/' || event?.url === '/login'
   }
 
   generateBreadcrumb(event: NavigationEnd): void {
@@ -40,12 +44,10 @@ export class AppComponent implements OnInit{
   }
 
   validateHeaderHide(event: NavigationEnd): void {
-    if(event?.url === '/' || event?.url === 'registrar-usuario'){
-      console.log('entro en if', event)
+    if(event?.url === '/registrar-usuario' || this.isHideBreacrumb(event) ){
       this.breadcrumbService.isHideFooter.set(true);
       this.breadcrumbService.isHideHeader.set(true);
     }else{
-      console.log('entro en else', event)
       this.breadcrumbService.isHideFooter.set(false);
       this.breadcrumbService.isHideHeader.set(false);
 

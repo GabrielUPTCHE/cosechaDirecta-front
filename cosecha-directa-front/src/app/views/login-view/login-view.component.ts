@@ -50,7 +50,8 @@ export class LoginViewComponent implements OnInit {
     this.classInputs = "";
     this.userService.validateUser(this.userName, this.password).subscribe(response => {
       sessionStorage.setItem('token', response.token);
-      this.router.navigate(['pagina-principal'])
+      const userDecode  = this.userService.setLoggedUser();
+      this.navigateDashboard(userDecode.role);
       this.router.getCurrentNavigation
       this.loadingLogin = false;
     }, error => {
@@ -63,6 +64,11 @@ export class LoginViewComponent implements OnInit {
 
   showRegisterDialog(): void {
     this.ref = this.dialogService.open(ModalRegisterComponent, {header: '¿Eres agricultor o negocio?', width: '40%'});
+  }
+
+  navigateDashboard(role:string):void {
+   if (role ==='P')   this.router.navigate(['dashbord-productor']);
+   if (role ==='N')   this.router.navigate(['']);
   }
 
   naviageRegister(): void {

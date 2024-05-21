@@ -1,7 +1,6 @@
 import { Component ,OnInit, VERSION } from '@angular/core';
-import { Product } from './product';
-import { ProductService } from './product.service';
 import {jwtDecode} from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   standalone:true,
@@ -11,11 +10,15 @@ import {jwtDecode} from 'jwt-decode';
 })
 export class MainPageComponent implements OnInit {
 
+  constructor(private route: Router){}
+
   ngOnInit(): void {
       const decodeUser = jwtDecode(sessionStorage.getItem('token'));
-      console.log('decode user:', decodeUser);
   }
 
+  navigate(url:string){
+    this.route.navigate([url]);
+  }
 
   
 }

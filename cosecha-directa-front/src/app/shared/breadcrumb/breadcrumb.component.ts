@@ -16,9 +16,6 @@ export class BreadcrumbComponent {
     this.items = breadcrumbService.items;
     this.home = breadcrumbService.home;  
     this.isHideBreadcrumb = breadcrumbService.isHideBreadcrumb;
-    effect(()=>{
-      console.log('items en effect:', this.items())
-    })
   }
  
 
