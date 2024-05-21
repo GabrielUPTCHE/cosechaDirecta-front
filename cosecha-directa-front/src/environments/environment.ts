@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'https://cosechadirecta-back-production-fe3d.up.railway.app/'
+  SERVER_URL: 'http://localhost:3000/'
 };
 
 /*
