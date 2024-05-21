@@ -1,0 +1,160 @@
+<div class="create-product">
+    <h1>Crea tu producto </h1>
+    <p-card styleClass="create-product-form">
+        <h2>Datos generales</h2>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="user-form">
+                <div class="inputs-container">
+
+                    <div class="formgrid grid">
+                        <div class="field col input-col">
+                            <label for="productName" [class]="submitted && f['productName'].errors?'error-label':''">Nombre del producto</label>
+                            <input pInputText id="productName" placeholder="Digita el nombre del producto" ngClass="w-full"
+                            [class]="submitted && f['productName'].errors?'ng-invalid ng-dirty':''"
+                                formControlName="productName" />
+                            @if (submitted && f['productName'].errors) {
+                            @if (f['productName'].errors['required']) {
+                            <small id="productName" class="error-message">
+                                El campo es obligatorio
+                            </small>
+                            }
+                            @if (f['productName'].errors['minlength']) {
+                            <small id="productName" class="error-message">
+                                El campo debe tener minimo 6 caracteres
+                            </small>
+                            }
+                            @if (f['productName'].errors['maxlength']) {
+                            <small id="productName" class="error-message">
+                                El campo debe tener maximo 100 caracteres
+                            </small>
+                            }
+                            }
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="formgrid grid">
+                        <div class="field col input-col">
+                            <label for="variety" [class]="submitted && f['variety'].errors?'error-label':''">Variedad</label>
+                            <input pInputText id="variety" placeholder="Digita la variedad" ngClass="w-full"
+                                [class]="submitted && f['variety'].errors?'ng-invalid ng-dirty':''" formControlName="variety" />
+                            @if (submitted && f['variety'].errors) {
+                            @if (f['variety'].errors['required']) {
+                            <small id="variety" class="error-message">
+                                El campo es obligatorio
+                            </small>
+                            }
+                            @if (f['variety'].errors['minlength']) {
+                            <small id="variety" class="error-message">
+                                El campo debe tener minimo 6 caracteres
+                            </small>
+                            }
+                            @if (f['variety'].errors['maxlength']) {
+                            <small id="variety" class="error-message">
+                                El campo debe tener maximo 100 caracteres
+                            </small>
+                            }
+                            }
+                        </div>
+                    </div>
+
+                    <label for="float-input" class="aditional-data-label-description" >Descripcion</label>
+                    <div class="formgrid grid">
+                        <div class="field col">
+                            <textarea rows="3" cols="47" pInputTextarea formControlName="description"
+                                placeholder="...">
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="formgrid grid">
+                    
+
+                        
+                        <div class="field col" style="max-width: 33%;">
+                            <label for="unitMeasure" [class]="submitted && f['unitMeasure'].errors?'error-label':''">Unidad de medida</label>
+                            <p-dropdown [options]="unitMeasures" 
+                                placeholder="Selecciona" formControlName="unitMeasure" optionLabel="name"
+                                optionValue="unit"
+                                [class]="submitted && f['unitMeasure'].errors?'ng-invalid ng-dirty':''"
+                                >
+                            </p-dropdown>
+
+                            @if (submitted && f['unitMeasure'].errors) {
+                                @if (f['unitMeasure'].errors['required']) {
+                                <small id="unitMeasure" class="error-message">
+                                    El campo es olbigatorio
+                                </small>
+                                }
+                            }
+                        </div>
+
+                        <div class="field col" style="max-width: 33%;">
+                            <label for="unitMeasure" [class]="submitted && f['timePeriodType'].errors?'error-label':''">Tipo de periodo</label>
+                            <p-dropdown [options]="periodTypes" 
+                                placeholder="Selecciona" formControlName="timePeriodType" optionLabel="name"
+                                optionValue="value"
+                                [class]="submitted && f['timePeriodType'].errors?'ng-invalid ng-dirty':''"
+                                (onChange) ="selectDropdown($event)"
+                                >
+                            </p-dropdown>
+
+                            @if (submitted && f['timePeriodType'].errors) {
+                                @if (f['timePeriodType'].errors['required']) {
+                                <small id="timePeriodType" class="error-message">
+                                    El campo es olbigatorio
+                                </small>
+                                }
+                            }
+                        </div>
+
+                        <div class="field col" style="max-width: 33%;">
+                            <label for="unitMeasure" [class]="submitted && f['timePeriodSize'].errors?'error-label':''">Cantidad</label>
+                            <p-dropdown [options]="periodSizes" emptyMessage="Selecciona primero tipo de periodo"
+                                placeholder="Selecciona" formControlName="timePeriodSize" optionLabel="name"
+                                optionValue="value"
+                                [class]="submitted && f['timePeriodSize'].errors?'ng-invalid ng-dirty':''"
+                                >
+                            </p-dropdown>
+
+                            @if (submitted && f['timePeriodSize'].errors) {
+                                @if (f['timePeriodSize'].errors['required']) {
+                                <small id="timePeriodSize" class="error-message">
+                                    El campo es olbigatorio
+                                </small>
+                                }
+                            }
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-column">
+                        <h3>Imagenes del producto.</h3>
+                        <label class="aditional-data-label">Selecciona imagenes</label>
+                        <p-fileUpload [showUploadButton]="false"  chooseStyleClass="p-button-success" name="uploadImageUSer"
+                            (onSelect)="onSelect($event)"
+                            (onRemove)="onRemove($event)"
+                            (onClear)="onCancel($event)"
+                            [multiple]="true"
+                            removeStyleClass="p-button-danger" cancelStyleClass="p-button-secondary"
+                            accept="image/*" maxFileSize="1000000" chooseLabel="Subir"
+                            cancelLabel="Cancelar">
+                        </p-fileUpload>
+                    </div>
+                    <p-divider></p-divider>
+                    <div class="action-container">
+                        <p-button label="Guardar" type="submit" [raised]="true" severity="success" ngClass="w-full"></p-button>
+                        <p-button label="Cancelar" (onClick)="cancelCreate()" [raised]="true" severity="secondary" ngClass="w-full d-flex"></p-button>                    
+                    </div>
+                </div>
+            </div>
+        </form>
+        <app-loading-screen [loading]="isLoading" [message]="'Validando datos...'"></app-loading-screen>
+   
+ 
+    </p-card>
+</div>
+
+<p-toast key="toast-3"/>

@@ -19,12 +19,22 @@ import { ToastModule } from 'primeng/toast';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SharedModule } from '../shared/shared.module';
 import { LoginViewComponent } from './login-view/login-view.component';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { DasboardProducerComponent } from './dasboard-producer/dasboard-producer.component';
+import { ProducerProductListComponent } from './producer-product-list/producer-product-list.component';
+import { ComponentsModule } from '../components/components.module';
+import { GalleriaModule } from 'primeng/galleria';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 @NgModule({
   declarations: [
     RegisterUserComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    CreateProductComponent,
+    DasboardProducerComponent,
+    ProducerProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +55,8 @@ import { LoginViewComponent } from './login-view/login-view.component';
     ToastModule,
     ProgressSpinnerModule,
     SharedModule,
+    ComponentsModule,
+    GalleriaModule
   ]
 })
 export class ViewsModule { }
