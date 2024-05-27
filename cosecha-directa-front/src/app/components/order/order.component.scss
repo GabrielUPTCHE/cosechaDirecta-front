@@ -1,0 +1,22 @@
+.order {
+    margin: 1rem;
+}
+.order-content {
+    display: flex;
+}
+.order-div{
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: #f1f2f2;
+    border-radius: 10px;
+}
+
+h3{
+    margin: 1rem;
+}
+.action{
+    margin:1rem;
+}
+::ng-deep p-button {
+    display: grid;
+}

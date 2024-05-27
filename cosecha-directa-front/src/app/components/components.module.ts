@@ -8,6 +8,7 @@ import { CardModule } from 'primeng/card';
 import { PrimengModule } from '../shared/primeng/primeng.module';
 import { ModalAddCartComponent } from './modal-add-cart/modal-add-cart.component';
 import { ProductCartComponent } from './product-cart/product-cart.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -16,11 +17,13 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
     ModalRegisterComponent,
     ProductComponent,
     ModalAddCartComponent,
-    ProductCartComponent
+    ProductCartComponent,
+    OrderComponent
   ],
   exports:[
     ProductComponent,
-    ProductCartComponent
+    ProductCartComponent,
+    OrderComponent
   ],
   imports: [
     CommonModule,

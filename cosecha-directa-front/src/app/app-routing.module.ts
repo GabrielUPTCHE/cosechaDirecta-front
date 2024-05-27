@@ -11,6 +11,8 @@ import { EditProductComponent } from './views/edit-product/edit-product.componen
 import { DasboardUserComponent } from './views/dasboard-user/dasboard-user.component';
 import { ShoppingCartComponent } from './views/shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './views/payment/payment.component';
+import { OrdersComponent } from './views/orders/orders.component';
+import { OrderDetailComponent } from './views/order-detail/order-detail.component';
 
 const routes: Routes = [
   
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path:'dashboard-usuario/inventario/editar-producto/:id', component:EditProductComponent},
   {path:'dashboard-usuario/carrito-de-compras', component:ShoppingCartComponent},
   {path:'dashboard-usuario/completar-pago', component:PaymentComponent},
+  {path:'dashboard-usuario/pedidos', component:OrdersComponent},
+  {path:'dashboard-usuario/pedidos/detalle/:id_sale', component:OrderDetailComponent},
   
 ];
 

@@ -1,1 +1,11 @@
-<p>orders works!</p>
+<div class="orders">
+    <p-card>
+        <div class="orders-content">
+            @for (order of orders; track $index) {
+                <app-order [order]="order">
+
+                </app-order>
+            }
+        </div>
+    </p-card>
+</div>

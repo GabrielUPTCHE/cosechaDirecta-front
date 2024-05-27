@@ -5,6 +5,7 @@ export interface Sale  {
     delivery_status: string;
     is_paid: number;
     id_user_bussines: number;
+    id_sale?: number;
 }
 
 export interface SaleDetail {
