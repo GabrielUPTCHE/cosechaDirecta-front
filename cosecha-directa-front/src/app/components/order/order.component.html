@@ -1,0 +1,19 @@
+<div class="order">
+    <p-card>
+        <h3>#{{order.id_sale}} Total pagado: ${{getTotal()| number}}</h3>
+        <div class="order-content">
+            <div class="order-div">
+
+                <h3>{{order.sale_date | date}}</h3>
+                <p>Transaccion {{formatOrderStatus()}}</p>
+            </div>
+            <div class="order-div">
+                <h3>Estado del pedido: {{formatIsPaid()}}</h3>
+                <p>Estado del envio: {{formatDelivery()}}</p>
+            </div>
+        </div>
+        <div class="action">
+            <p-button label="Mas detalles" (click)="moreDetails()" [raised]="true" severity="success" ngClass="w-full"></p-button>
+        </div>
+    </p-card>
+</div>

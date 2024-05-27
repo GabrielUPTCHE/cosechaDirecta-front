@@ -15,6 +15,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { DasboardUserComponent } from './dasboard-user/dasboard-user.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { PaymentComponent } from './payment/payment.component';
     InventoryProducerComponent,
     EditProductComponent,
     ShoppingCartComponent,
-    PaymentComponent
+    PaymentComponent,
+    OrdersComponent,
+    OrderDetailComponent
   ],
   imports: [
     CommonModule,

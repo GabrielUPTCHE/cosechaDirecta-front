@@ -266,10 +266,9 @@
 
 
                     </div>
-                    @if(typeUserCreate === "agricultor"){
                     <div class="flex flex-column">
                         <p-divider></p-divider>
-                        <h2>Informacion adicional agricultor</h2>
+                        <h2>Informacion adicional</h2>
                         <label class="aditional-data-label">Foto de perfil</label>
                         <p-fileUpload [showUploadButton]="false"  chooseStyleClass="p-button-success" name="uploadImageUSer"
                             [customUpload]="true"
@@ -288,7 +287,6 @@
                         
 
                     </div>
-                    }
                     <p-divider></p-divider>
                     <div class="action-container">
                         <p-button label="Guardar" type="submit" [raised]="true" severity="success" ngClass="w-full"></p-button>

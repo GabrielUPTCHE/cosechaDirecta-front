@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Pedidos',
       icon: 'pi pi-truck',
-      routerLink: ['dashboard-usuario/crear-producto'],
+      routerLink: ['dashboard-usuario/pedidos'],
     },
   ];
 
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Pedidos',
       icon: 'pi pi-truck',
-      routerLink: ['dashboard-usuario/crear-producto'],
+      routerLink: ['dashboard-usuario/pedidos'],
     },
     
   ];
