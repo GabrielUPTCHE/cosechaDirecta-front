@@ -77,7 +77,6 @@ export class EditProductComponent {
     this.activeRoute.params.subscribe(params =>{
       this.productId = params['id'];
       this.producService.getProduct(Number(this.productId)).subscribe( product =>{
-        console.log('el product:', product);
         this.initsForm(product);
         this.producService.getPeriodSizes(product.time_period_type).subscribe(periodSize => {
           this.periodSizes = periodSize;

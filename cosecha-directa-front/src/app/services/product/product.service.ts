@@ -56,5 +56,9 @@ export class ProductService {
   getInventoryProductsByUser(id_user:number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.url}/get-inventory/${id_user}`)
   }
+  deleteProduct(id_product:number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.url}/delete-product/${id_product}`)
+  }
+
 
 }

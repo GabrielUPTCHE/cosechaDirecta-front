@@ -9,7 +9,7 @@ import { UserServiceService } from 'src/app/services/user/user-service.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
 
@@ -65,6 +65,10 @@ export class HeaderComponent implements OnInit {
       if (this.loggedUser?.role === 'N') {
     }
     this.isHideHeader = this.breadcrumbService.isHideHeader;
+  }
+
+  editUser(): void {
+    this.router.navigate(['dashboard-usuario/editar-usuario'])
   }
 
 }

@@ -30,9 +30,7 @@ export class DasboardUserComponent  implements OnInit{
       }, 5);
 
     }
-    console.log('aaaa')
     if (payCart) {
-      console.log('entrooo')
       setTimeout(() => {
         this.showAlert('success', 'Pago realizado', 'Se ha realizado el pedido a los productos del pedido')
         localStorage.removeItem('payCart')

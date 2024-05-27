@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SaleDetail } from 'src/app/models/sales';
 import { User } from 'src/app/models/user';
 import { SalesService } from 'src/app/services/sales/sales.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
@@ -12,6 +13,7 @@ export class OrdersComponent implements OnInit {
 
   orders:any;
   loggedUser:User;
+  salesDetails: SaleDetail[] = [];
 
   constructor(private salesServices: SalesService, private userService: UserServiceService) {}
 
@@ -19,8 +21,12 @@ export class OrdersComponent implements OnInit {
     this.loggedUser = this.userService.getLoggedUser().user;
     this.salesServices.getSales(this.loggedUser.id_user).subscribe( response =>{
       this.orders = response;
-      console.log('responseee:', response);
     })
+    if (this.loggedUser.role === 'P') {
+      this.salesServices.getSalesDetailByProducer(this.loggedUser.id_user).subscribe(response =>{
+        this.salesDetails = response;
+      })
+    }
   }
 
 }

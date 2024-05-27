@@ -13,6 +13,7 @@ import { ShoppingCartComponent } from './views/shopping-cart/shopping-cart.compo
 import { PaymentComponent } from './views/payment/payment.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { OrderDetailComponent } from './views/order-detail/order-detail.component';
+import { EditUserComponent } from './views/edit-user/edit-user.component';
 
 const routes: Routes = [
   
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'login', component:LoginViewComponent},
   {path:'registrar-usuario', component:RegisterUserComponent},
   {path:'dashboard-usuario', component:DasboardUserComponent},
+  {path:'dashboard-usuario/editar-usuario', component:EditUserComponent},
   {path:'dashboard-usuario/crear-producto', component:CreateProductComponent},
   {path:'dashboard-usuario/lista-general-productos', component:ProducerProductListComponent},
   {path:'dashboard-usuario/lista-general-productos/producto/:id', component:ProductDetailComponent},

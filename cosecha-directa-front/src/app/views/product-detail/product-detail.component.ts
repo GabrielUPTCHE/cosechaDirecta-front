@@ -40,7 +40,6 @@ export class ProductDetailComponent implements OnInit {
     this.route.params.subscribe(params =>{
       this.productService.getProduct(params['id']).subscribe(product =>{
         this.product = product;
-        console.log('el product:', this.product);     
         this.images  = this.getImages();
       })
     })

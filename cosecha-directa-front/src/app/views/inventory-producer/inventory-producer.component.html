@@ -1,5 +1,5 @@
 <div class="inventory-content">
-    <p-table [value]="inventory" [tableStyle]="{'width': '90%'}">
+    <p-table [value]="inventory" [tableStyle]="{'width': '100%'}">
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th>Producto</th>
@@ -8,7 +8,7 @@
                 <th style="width: 16rem;">Periodo de recoleccion</th>
                 <th>Ubicacion</th>
                 <th style="width: 14rem;">Unidad de Medida</th>
-                <th>Acciones</th>
+                <th style="width: 20rem;">Acciones </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product let-columns="columns">
@@ -33,10 +33,19 @@
                    <!--  <p-rating [(ngModel)]="product.unit_measure" [readonly]="true" [cancel]="false" /> -->
                 </td>
                 <td>
-                    <p-button (click)="editProduct(product.id_product )" >Editar</p-button>
+                    <div class="buttons">
+                        <div class="button">
+                            <p-button (click)="editProduct(product.id_product )" icon="pi pi-pencil" [rounded]="true" [text]="true" [raised]="true" severity="secondary " />
+                        </div>
+                        <div class="button">
+                            <p-button icon="pi pi-trash" (click)="deleteProduct(product.id_product )" [rounded]="true" [text]="true" [raised]="true" severity="danger " />
+                        </div>
+                    </div>
                 </td>
             </tr>
         </ng-template>
     </p-table>
     
 </div>
+
+<app-loading-screen [loading]="isLoading" ></app-loading-screen>

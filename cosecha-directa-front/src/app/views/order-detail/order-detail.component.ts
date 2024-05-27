@@ -16,9 +16,11 @@ export class OrderDetailComponent implements OnInit{
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params =>{
-      this.saleService.getSalesDetail(params['id_sales']).subscribe( response => {
-        this.salesDetails = response;
-      })
+      if (params['id_sale']) {
+        this.saleService.getSalesDetail(params['id_sale']).subscribe( response => {
+          this.salesDetails = response;
+        })
+      }
     })
   }
 

@@ -1,23 +1,20 @@
-import { Component, OnInit, effect, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { UploadEvent } from 'primeng/fileupload';
 import { User } from 'src/app/models/user';
 import { StorageFirebaseService } from 'src/app/services/firebase/storage-firebase.service';
 import { LocationService } from 'src/app/services/location/location.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import Validation from 'src/app/utils/validation';
 
-
 @Component({
-  selector: 'app-register-user',
-  templateUrl: './register-user.component.html',
-  styleUrl: './register-user.component.scss',
-  providers: [MessageService]
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrl: './edit-user.component.scss',
+  providers:[MessageService]
 })
-export class RegisterUserComponent implements OnInit {
-
+export class EditUserComponent {
   typeUserCreate: string;
   repeatPassword: string;
   departments: any[] = [];
@@ -26,16 +23,17 @@ export class RegisterUserComponent implements OnInit {
   selectedCity: string = '';
   uploadImageUser: File;
   isLoading:boolean = false;
+  disabledForm: boolean = true;
 
   form: FormGroup = new FormGroup({
-    fullname: new FormControl(''),
-    username: new FormControl(''),
-    direction: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    phone: new FormControl(''),
-    idNumber: new FormControl(''),
+    fullname: new FormControl('Gabriel Infante'),
+    username: new FormControl('gabriel11'),
+    direction: new FormControl('cra 11 - #2 - 2'),
+    email: new FormControl('ginfante099@gmail.com'),
+    password: new FormControl('Parafusso11'),
+    confirmPassword: new FormControl('Parfusso11'),
+    phone: new FormControl('3222471439'),
+    idNumber: new FormControl('1051212500'),
     department: new FormControl(''),
     city: new FormControl(''),
     imgUser: new FormControl(undefined),
@@ -72,7 +70,7 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submitted = true;
+    /* this.submitted = true;
     if (this.form.invalid) {
       this.showAlert(
         'error',
@@ -91,7 +89,7 @@ export class RegisterUserComponent implements OnInit {
       })
     }else{
       this.handleCreateUser(modelUser)
-    }
+    } */
   }
 
   handleCreateUser(modelUser: User, url_img:string = '') :void {
@@ -141,7 +139,7 @@ export class RegisterUserComponent implements OnInit {
   }
 
   cancelCreate(): void{
-    this.router.navigate(['login'])
+    this.router.navigate(['dashboard-usuario'])
   }
 
   initsForm() :void {
@@ -158,7 +156,7 @@ export class RegisterUserComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(6),
-            Validators.maxLength(100)
+            Validators.maxLength(100),
           ]
         ],
         direction:['', 
@@ -217,6 +215,4 @@ export class RegisterUserComponent implements OnInit {
       }
     );
   }
-
-
 }
