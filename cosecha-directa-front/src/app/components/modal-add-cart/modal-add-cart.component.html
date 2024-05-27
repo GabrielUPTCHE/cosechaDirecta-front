@@ -1,0 +1,22 @@
+<div class="add-cart-content">
+    <div class="info">
+        <h4>Disponibles {{product.inventory[0].quantity_available}} {{product.unit_measure}}</h4>
+        <p-inputNumber inputId="integeronly" onlyNumber [(ngModel)]="orderProductsAmount" [step]="1" [min]="1"
+            [max]="product.inventory[0].quantity_available" [suffix]="' ' +product.unit_measure"
+            decrementButtonClass="p-button-success" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+            decrementButtonIcon="pi pi-minus" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+            spinnerMode="horizontal" />
+        <h4>Total: <span>${{(orderProductsAmount * product.inventory[0].unit_price) | number}} </span></h4>
+    </div>
+    <div class="product-action">
+        <div class="button-add">
+            <p-button label="Añadir al carrito" (click)="addProductToCart()" [raised]="true" severity="success"
+            ngClass="w-full"></p-button>
+        </div>
+    
+        <div class="button-add">
+            <p-button label="Cancelar" (click)="close()" [raised]="true" severity="secondary"
+            ngClass="w-full"></p-button>
+        </div>
+    </div>
+</div>

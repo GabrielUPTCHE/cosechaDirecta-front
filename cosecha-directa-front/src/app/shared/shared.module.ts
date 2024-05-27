@@ -218,7 +218,7 @@ import { LoadingScreenComponent } from './loadingScreen/loading-screen/loading-s
     StyleClassModule,
     IconFieldModule,
     InputIconModule,
-    AutoFocusModule
+    AutoFocusModule,
   ],
   exports:[
     LoadingScreenComponent,

@@ -1,9 +1,11 @@
 <div class="product-list">
     <div class="conent">
         <p-card>
-            @for (product of products; track $index) {
-                <app-product [product]="product"></app-product>
-            }
+            <div class="flex flex-wrap jc-center" >
+                @for (product of products; track $index) {
+                    <app-product [product]="product"></app-product>
+                }
+            </div>
         </p-card>
     </div>
 </div>

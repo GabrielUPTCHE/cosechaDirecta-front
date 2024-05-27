@@ -1,0 +1,35 @@
+.product-detail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-detail {
+    display: flex;
+}
+
+.product-data {
+    margin: 3rem;
+}
+
+.product-images {
+    margin: 1rem 0rem 1rem 3rem;
+}
+h1{
+    color: #2f2e30;
+}
+
+.product-description{
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.product-action{
+    position: relative;
+    top: 100px;
+    ::ng-deep .p-button {
+        display: grid;
+        width: 100%;
+    }
+}

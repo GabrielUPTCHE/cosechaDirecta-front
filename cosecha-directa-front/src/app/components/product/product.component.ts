@@ -25,7 +25,7 @@ export class ProductComponent {
 
 
   navigateToProduct() : void {
-    this.router.navigate(['/dashbord-productor/lista-general-productos/producto', this.product.id_product]);
+    this.router.navigate(['/dashboard-usuario/lista-general-productos/producto', this.product.id_product]);
   }
 
   

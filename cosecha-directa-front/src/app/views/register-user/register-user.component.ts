@@ -134,14 +134,14 @@ export class RegisterUserComponent implements OnInit {
     }
     if (response.status === 'success') {
       localStorage.setItem('generatedUser',JSON.stringify({severity:response.status,detail:response.detail, message:response.message}))
-      this.router.navigate(['/'])
+      this.router.navigate(['login'])
       return;
     }
 
   }
 
   cancelCreate(): void{
-    this.router.navigate(['/'])
+    this.router.navigate(['login'])
   }
 
   initsForm() :void {

@@ -1,6 +1,9 @@
 
-header {
+
     ::ng-deep .p-menubar{
         height: 80px;
     }
-}
+
+    ::ng-deep .p-badge {
+        margin-left:  0.5rem;
+    }

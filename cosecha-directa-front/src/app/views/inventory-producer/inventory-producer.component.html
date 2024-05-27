@@ -1,0 +1,42 @@
+<div class="inventory-content">
+    <p-table [value]="inventory" [tableStyle]="{'width': '90%'}">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Producto</th>
+                <th style="width: 11rem;">Precio Unitario </th>
+                <th>Cantidad</th>
+                <th style="width: 16rem;">Periodo de recoleccion</th>
+                <th>Ubicacion</th>
+                <th style="width: 14rem;">Unidad de Medida</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product let-columns="columns">
+            <tr>
+                <td>
+                    {{product.product_name}}
+                </td>
+                <td>
+                    $ {{product.unit_price | number}}
+                </td>
+                <td>
+                    {{product.quantity}}
+                </td>
+                <td>
+                    {{getPeriodType(product)}}
+                </td>
+                <td>
+                    <p-tag [value]="product.location" [severity]="success" />
+                </td>
+                <td>
+                    <p-tag [value]="product.unit_measure" [severity]="success" />
+                   <!--  <p-rating [(ngModel)]="product.unit_measure" [readonly]="true" [cancel]="false" /> -->
+                </td>
+                <td>
+                    <p-button (click)="editProduct(product.id_product )" >Editar</p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+</div>

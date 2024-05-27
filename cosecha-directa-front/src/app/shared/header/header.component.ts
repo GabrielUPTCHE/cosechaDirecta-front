@@ -1,6 +1,7 @@
 import { Component, OnInit, Signal, effect } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { Cart } from 'src/app/models/cart';
 import { User } from 'src/app/models/user';
 import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
@@ -10,56 +11,60 @@ import { UserServiceService } from 'src/app/services/user/user-service.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
 
   isHideHeader: Signal<boolean>;
-  loggedUser:User;
+  loggedUser: User;
   items: MenuItem[] | undefined;
+  prodcutsCartSize: number = 0;
 
-  constructor(private breadcrumbService: BreadcrumbService, private userService: UserServiceService, private router: Router){}
+  itemsProducer = [
+    {
+      label: 'Crear producto',
+      icon: 'pi pi-plus',
+      routerLink: ['dashboard-usuario/crear-producto'],
+    },
+    {
+      label: 'Pedidos',
+      icon: 'pi pi-truck',
+      routerLink: ['dashboard-usuario/crear-producto'],
+    },
+  ];
 
-  ngOnInit(): void {
-    this.loggedUser = this.userService.getLoggedUser().user;    
-    this.items = [
-        {
-            label: 'Crear producto',
-            icon: 'pi pi-palette',
-            routerLink:['dashbord-productor/crear-producto'],
-           /*  items: [
-                {
-                    label: 'Installation',
-                    route: '/login'
-                },
-                {
-                    label: 'Configuration',
-                    route: '/login'
-                }
-            ] */
-        },
-        {
-            label: 'Programmatic',
-            icon: 'pi pi-link',
-            command: () => {
-                this.router.navigate(['/login']);
-            }
-        },
-        {
-            label: 'External',
-            icon: 'pi pi-home',
-            items: [
-                {
-                    label: 'Angular',
-                    url: 'https://angular.io/'
-                },
-                {
-                    label: 'Vite.js',
-                    url: 'https://vitejs.dev/'
-                }
-            ]
-        }
-    ];
-      this.isHideHeader = this.breadcrumbService.isHideHeader;
+  itemsBussines = [
+    {
+      label: 'Carrito',
+      icon: 'pi pi-shopping-cart',
+      routerLink: ['dashboard-usuario/carrito-de-compras'],
+      badge: this.prodcutsCartSize.toString(),
+    },
+    {
+      label: 'Pedidos',
+      icon: 'pi pi-truck',
+      routerLink: ['dashboard-usuario/crear-producto'],
+    },
+    
+  ];
+
+
+  constructor(
+    private breadcrumbService: BreadcrumbService, 
+    private userService: UserServiceService, 
+    private router: Router, 
+    ) 
+    {
+      this.router.events.subscribe(response => {
+        this.ngOnInit();
+      })  
+    }
+    
+    ngOnInit(): void {
+      this.loggedUser = this.userService.getLoggedUser().user;
+      const cart: Cart = JSON.parse(localStorage.getItem('productsCart'));
+      this.itemsBussines[0].badge = cart.productsCart.length.toString();
+      if (this.loggedUser?.role === 'N') {
+    }
+    this.isHideHeader = this.breadcrumbService.isHideHeader;
   }
-
 
 }

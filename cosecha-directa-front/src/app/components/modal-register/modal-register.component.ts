@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
@@ -8,7 +8,7 @@ import { UserServiceService } from 'src/app/services/user/user-service.service';
   templateUrl: './modal-register.component.html',
   styleUrl: './modal-register.component.scss',
 })
-export class ModalRegisterComponent {
+export class ModalRegisterComponent  {
 
   constructor(private router: Router, private ref: DynamicDialogRef, private userService: UserServiceService){}
 
@@ -18,5 +18,6 @@ export class ModalRegisterComponent {
     this.userService.typeUserCreate = typeUser;
     this.router.navigate(['registrar-usuario'])
   }
+
 
 }

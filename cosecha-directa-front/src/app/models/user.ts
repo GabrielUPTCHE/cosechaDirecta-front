@@ -1,4 +1,5 @@
 export interface User {
+    id_user?:number,
     phone: string;
     email: string;
     direction: string;

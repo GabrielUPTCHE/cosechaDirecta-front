@@ -1,0 +1,26 @@
+.shopping-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90vw;
+    max-width: 90vw;
+    min-height: 50vh;
+    margin: 2rem;
+}
+
+.content {
+    display: flex;
+}
+
+.purchase-card {
+    margin-top: 30px;
+    position:sticky;
+    top: 0px;
+    right: 20px;
+    height: 400px;
+}
+
+h2 {
+    width: 250px;
+
+}

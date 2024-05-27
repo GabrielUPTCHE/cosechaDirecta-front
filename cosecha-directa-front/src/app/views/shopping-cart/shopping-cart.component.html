@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="shopping-cart">
+        <p-card>
+            @for (cartItem of cart.productsCart; track $index) {
+                <app-product-cart 
+                    [product]="cartItem.product" 
+                    [orderQuantity]="cartItem.orderQuantity" 
+                    [removeProduct]="removeProduct" 
+                    [setListProductCart]="setListProductCart"
+                    >
+                </app-product-cart>
+            }
+        </p-card>
+    </div>
+    <div class="purchase-card">
+        <p-card>
+            <h2>Total a pagar</h2>
+            <h2>${{getTotalPay() | number}}</h2>
+            <p-button label="Pagar todo" (click)="payAll()" [raised]="true" severity="success" ngClass="w-full"></p-button>
+        </p-card>
+    </div>
+</div>
+
+<app-loading-screen [loading]="isLoading"></app-loading-screen>

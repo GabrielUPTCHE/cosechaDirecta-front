@@ -32,7 +32,11 @@ export class UserServiceService {
   }
 
   getLoggedUser(): any{
-    const decodeUser = jwtDecode(sessionStorage.getItem('token'));
+    let decodeUser = '';
+    let token  = sessionStorage.getItem('token');
+    if (token) {
+      decodeUser = jwtDecode(token);
+    }
     return decodeUser;
   }
 

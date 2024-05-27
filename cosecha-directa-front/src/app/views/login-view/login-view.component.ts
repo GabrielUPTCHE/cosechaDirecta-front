@@ -35,6 +35,7 @@ export class LoginViewComponent implements OnInit {
   
   ngOnInit(): void {
     const generatedUser = localStorage.getItem('generatedUser');
+    sessionStorage.removeItem('token');
     if (generatedUser) {
       setTimeout(() => {
       const generatedUserObject = JSON.parse(generatedUser);
@@ -67,8 +68,8 @@ export class LoginViewComponent implements OnInit {
   }
 
   navigateDashboard(role:string):void {
-   if (role ==='P')   this.router.navigate(['dashbord-productor']);
-   if (role ==='N')   this.router.navigate(['']);
+   if (role ==='P')   this.router.navigate(['dashboard-usuario']);
+   if (role ==='N')   this.router.navigate(['dashboard-usuario']);
   }
 
   naviageRegister(): void {

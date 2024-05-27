@@ -1,40 +1,17 @@
-<div class="product">
-    
-    <p-card [header]="product.product_name">
-        <ng-template pTemplate="header">
-            <img alt="Card" class="img-card-module" [src]="product.product_images[0].url_image" />
-        </ng-template>
-        <div class="content">
-            <div class="row-product">
-                <p >
-                    {{product.description}}
-                </p>
-            </div>
-            <div class="row-product">
-                <p class="label-green">
-                    Variedad:
-                </p>
-                <p >
-                     {{product.variety}}
-                </p>
-            </div>
-            <div class="row-product">
-                <p class="label-green">Periodo de tiempo: </p>
-                <p >
-                     {{product.time_period_size}} {{getPeriodType()}}
-                </p>
-            </div>
-            <div class="row-product">
-                <p-button label="Ver detalles" severity="success" ngClass="w-full" (onClick)="navigateToProduct()"  />
-            </div>
-            <div>
-                
-            </div>
-
+<div class="card">
+    <img [src]="product.product_images[0].url_image " alt="">
+    <h1 class="h2-card">{{product.product_name}}</h1>
+    <div class="first-card">
+    </div>
+    <div class="card__content">
+        <p class="card__title">{{product.product_name}}</p>
+        <hr class="hr-card">
+        <p class="card__description">{{product.description}}</p>
+        <p class="card__description"><span>Variedad</span> {{product.variety}}</p>
+        <p class="card__description"><span>Periodo de tiempo</span> {{product.time_period_type}}</p>
+        <div class="actions-card">
+            <p-button label="Ver detalles" severity="success" ngClass="w-full" (onClick)="navigateToProduct()"  />
         </div>
-        <div>
-            <img  alt="">
-        </div>
-
-    </p-card>
-</div>
+    </div>
+  </div>
+  

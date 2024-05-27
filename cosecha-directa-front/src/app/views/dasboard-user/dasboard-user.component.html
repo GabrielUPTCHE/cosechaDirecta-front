@@ -1,0 +1,42 @@
+<div class="dashboard-producer">
+    <h1 >Gestion de productor</h1>
+    <div class="modules-list">
+        <div class="module">
+            <p-card header="Productos Generales" [style]="{ width: '360px' ,color:'#373737' }">
+                <ng-template pTemplate="header">
+                    <img alt="Card" class="img-card-module"
+                        src="https://firebasestorage.googleapis.com/v0/b/cosecha-directa-storage.appspot.com/o/assets%2Fproducer%2Fproduct-list-card.jpg?alt=media&token=3538f3a5-2fa7-46e4-8c5f-cf3d5afaf82c" />
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <div class="flex gap-3 mt-1">
+                        <p-button label="Productos Generales" class="w-full" styleClass="w-full" severity="success" 
+                        (click)="navigateTo('dashboard-usuario/lista-general-productos')"
+                        />
+                    </div>
+                </ng-template>
+            </p-card>
+        </div>
+        @if (loggedUser.role === 'P') {
+            <div class="module">
+                <div class="module">
+                    <p-card header="Inventario de Productos" [style]="{ width: '360px', color:'#373737' }">
+                        <ng-template pTemplate="header">
+                            <img alt="Card" class="img-card-module"
+                                src="https://firebasestorage.googleapis.com/v0/b/cosecha-directa-storage.appspot.com/o/assets%2Fproducer%2Finventory-product.jpg?alt=media&token=06648421-2c4d-4063-b64b-77bcb59938d0" />
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <div class="flex gap-3 mt-1">
+                                <p-button label="Inventario de Productos" class="w-full" styleClass="w-full" severity="success"
+                                (click)="navigateTo('dashboard-usuario/inventario')"
+                                />
+                            </div>
+                        </ng-template>
+                    </p-card>
+                </div>
+                <div class="module">
+                </div>
+            </div>
+        }
+    </div>
+
+    <p-toast key="4"/>

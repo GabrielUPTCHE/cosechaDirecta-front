@@ -1,14 +1,36 @@
-<p-galleria 
-    [value]="images" 
-    [responsiveOptions]="responsiveOptions" 
-    [containerStyle]="{ 'max-width': '640px' }" 
-    [numVisible]="5">
-        <ng-template pTemplate="item" let-item>
-            <img [src]="item.itemImageSrc" style="width: 100%;" />
-        </ng-template>
-        <ng-template pTemplate="thumbnail" let-item>
-            <div class="grid grid-nogutter justify-content-center">
-                <img [src]="item.thumbnailImageSrc" />
+<div class="product-detail">
+    <p-card>
+        <div class="content-detail">
+            <div class="product-images">
+                <p-galleria [(value)]="images" [showItemNavigators]="true" [responsiveOptions]="responsiveOptions"
+                [circular]="true" [numVisible]="5" [containerStyle]="{ 'max-width': '600px', 'max-heigth':'400px' }">
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item" style="width: 600px; height:400px; display: block;object-fit: cover;" />
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                    <div class="grid grid-nogutter justify-content-center">
+                        <img [src]="item" style="display: block; width: 90px; height: 90px;object-fit: cover;" />
+                    </div>
+                </ng-template>
+            </p-galleria>
             </div>
-        </ng-template>
-</p-galleria>
+            <div class="product-data">
+                <h1>{{product.product_name}}</h1>
+                <p class="product-description">{{product.description}}</p>
+                <p class="product-price">$ {{product.inventory[0].unit_price | number}} por cada {{product.unit_measure}}</p>
+                <p class="product-producer">Vendido por: {{product.inventory[0].user.fullname}}</p>
+                <p class="product-location">Ubicacion: {{product.location.location_name}}</p>
+                <p class="product-location">Periodo de entrega: {{product.time_period_type}}</p>
+                <p class="product-location">Proxima fecha de entrega: {{product.inventory[0].next_delivery_date | date}}</p>
+                <p>Disponibles para la proxima entrega: {{product.inventory[0].quantity_available}} {{product.unit_measure}}</p>
+               @if (loggedUser.role === 'N') {
+                <div class="product-action">
+                    <p-button label="Añadir al carrito" (click)="addCart()" [raised]="true" severity="success" ngClass="w-full"></p-button>
+                   </div>
+               }
+            </div>  
+        </div>
+    </p-card>
+</div>
+
+<p-toast key="5"></p-toast>

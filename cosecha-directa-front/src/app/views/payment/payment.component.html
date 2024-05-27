@@ -1,0 +1,50 @@
+<div class="payment-content">
+  <p-card>
+    <h2 style="text-align: center;">Realizar pago</h2>
+    <div class="field col input-col">
+      <div class="flex flex-column p-3">
+        <label>Nombre del titular</label>
+        <input pInputText />
+      </div>
+      <div class="flex flex-column p-3">
+        <label>Número de la tarjeta</label>
+        <input pInputText />
+      </div>
+      <div class="flex flex-column p-3">
+        <label>Mes de expiración</label>
+        <input pInputText />
+      </div>
+      <div class="flex flex-column p-3">
+        <label>Año de expiración</label>
+        <input pInputText />
+      </div>
+      <div class="flex flex-column p-3">
+        <label for="form-checkout__securityCode">Código de seguridad</label>
+        <input pInputText />
+      </div>
+      <div class="flex flex-column p-3">
+        <label for="form-checkout__installments">Cuotas</label>
+        <p-dropdown [options]="valuesSelectCuotes" optionLabel="name" [(ngModel)]="selectedCuote" optionLabel="name"
+          placeholder="Numero de cuotas" />
+      </div>
+      <div class="flex flex-column p-3">
+        <label>Tipo de documento</label>
+        <p-dropdown [options]="documentTypes" optionLabel="name" [(ngModel)]="selectedDocumentType" optionLabel="name"
+          placeholder="Tipo de documento" />
+      </div>
+      <div class="flex flex-column p-3 ">
+        <label for="form-checkout__identificationNumber">Número de documento</label>
+        <input pInputText />
+      </div>
+      <div class="flex flex-column p-3">
+        <label for="form-checkout__issuer">Banco emisor</label>
+        <p-dropdown [options]="banks" optionLabel="name" [(ngModel)]="selectedBank" optionLabel="name"
+          placeholder="Selecciona banco" />
+      </div>
+      <p-divider></p-divider>
+      <div class="actions">
+        <button pButton pRipple label="Realizar pago" (click)="doPayment()" class="p-button-success"></button>
+      </div>
+    </div>
+  </p-card>
+</div>

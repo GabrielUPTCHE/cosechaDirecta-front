@@ -1,7 +1,7 @@
 <div class="create-product">
     <h1>Crea tu producto </h1>
     <p-card styleClass="create-product-form">
-        <h2>Datos generales</h2>
+        <h3>Datos generales</h3>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -70,18 +70,18 @@
                         </div>
                     </div>
 
-                    <div class="formgrid grid">
-                    
+                    <p-divider></p-divider>
 
-                        
-                        <div class="field col" style="max-width: 33%;">
+                    <h3>Cantidad</h3>
+
+                    <div class="formgrid grid">
+                        <div class="field col" style="max-width: 50%;">
                             <label for="unitMeasure" [class]="submitted && f['unitMeasure'].errors?'error-label':''">Unidad de medida</label>
                             <p-dropdown [options]="unitMeasures" 
-                                placeholder="Selecciona" formControlName="unitMeasure" optionLabel="name"
-                                optionValue="unit"
-                                [class]="submitted && f['unitMeasure'].errors?'ng-invalid ng-dirty':''"
-                                >
+                                placeholder="Selecciona" formControlName="unitMeasure" optionLabel="name" optionValue="unit"
+                                [class]="submitted && f['unitMeasure'].errors?'ng-invalid ng-dirty dropdown-size':'dropdown-size'">
                             </p-dropdown>
+                            
 
                             @if (submitted && f['unitMeasure'].errors) {
                                 @if (f['unitMeasure'].errors['required']) {
@@ -92,12 +92,38 @@
                             }
                         </div>
 
-                        <div class="field col" style="max-width: 33%;">
+                        <div class="field col" style="max-width: 50%;">
+                            <label for="amount" [class]="submitted && f['amount'].errors?'error-label':''">Cantidad disponible</label>
+                            <input pInputText id="phone" placeholder="Cantidad" ngClass="w-full" 
+                            [class]="submitted && f['amount'].errors?'ng-invalid ng-dirty':''"
+                            onlyNumber formControlName="amount"
+                            maxlength="6"
+                            />
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="formgrid grid">
+                            <div class="field col" style="max-width: 40%;">
+                                <label for="price" [class]="submitted && f['price'].errors?'error-label':''">Precio unitario</label>
+                                <p-inputNumber placeholder="Precio" inputId="integeronly" formControlName="price" prefix="$" maxlength="8" size="67" />
+                            </div>
+                                    
+                    </div>
+
+                    <p-divider></p-divider>
+
+                    <h3>Periodo de recoleccion.</h3>
+
+                    <div class="formgrid grid">
+
+                        <div class="field col" style="max-width: 50%;">
                             <label for="unitMeasure" [class]="submitted && f['timePeriodType'].errors?'error-label':''">Tipo de periodo</label>
                             <p-dropdown [options]="periodTypes" 
                                 placeholder="Selecciona" formControlName="timePeriodType" optionLabel="name"
                                 optionValue="value"
-                                [class]="submitted && f['timePeriodType'].errors?'ng-invalid ng-dirty':''"
+                                [class]="submitted && f['timePeriodType'].errors?'ng-invalid ng-dirty dropdown-size':'dropdown-size'"
                                 (onChange) ="selectDropdown($event)"
                                 >
                             </p-dropdown>
@@ -111,25 +137,77 @@
                             }
                         </div>
 
-                        <div class="field col" style="max-width: 33%;">
-                            <label for="unitMeasure" [class]="submitted && f['timePeriodSize'].errors?'error-label':''">Cantidad</label>
-                            <p-dropdown [options]="periodSizes" emptyMessage="Selecciona primero tipo de periodo"
-                                placeholder="Selecciona" formControlName="timePeriodSize" optionLabel="name"
-                                optionValue="value"
-                                [class]="submitted && f['timePeriodSize'].errors?'ng-invalid ng-dirty':''"
-                                >
-                            </p-dropdown>
+                        
 
-                            @if (submitted && f['timePeriodSize'].errors) {
-                                @if (f['timePeriodSize'].errors['required']) {
-                                <small id="timePeriodSize" class="error-message">
+                        <div class="field col" style="max-width: 50%;">
+                            <label for="unitMeasure" [class]="submitted && f['beginPeriodDate'].errors?'error-label':''">
+                                Numero de veces por periodo</label>
+                                <p-calendar formControlName="beginPeriodDate" [iconDisplay]="'input'" 
+                                [minDate]="minDate"
+                                [class]="submitted && f['beginPeriodDate'].errors?'ng-invalid ng-dirty dropdown-size':' dropdown-size'"
+                                [showIcon]="true" inputId="icondisplay" />
+
+                            @if (submitted && f['beginPeriodDate'].errors) {
+                                @if (f['beginPeriodDate'].errors['required']) {
+                                <small id="beginPeriodDate" class="error-message">
                                     El campo es olbigatorio
                                 </small>
                                 }
                             }
                         </div>
+                        
+                        
+                        
                     </div>
-                    
+
+                    <p-divider></p-divider>
+
+                    <h3>Ubicacion del producto</h3>
+
+                    <div class="formgrid grid">
+                        <div class="field col" style="max-width: 50%;">
+                            <label for="department" [class]="submitted && f['department'].errors?'error-label':''">Departamento</label>
+                            <p-dropdown [options]="departments" [(ngModel)]="selectedDepartment"
+                                placeholder="Selecciona" formControlName="department" optionLabel="location_name"
+                                optionValue="id_location"
+                                [class]="submitted && f['department'].errors?'ng-invalid ng-dirty dropdown-size':'dropdown-size'"
+                                >
+                            </p-dropdown>
+    
+                            @if (submitted && f['department'].errors) {
+                                @if (f['department'].errors['required']) {
+                                <small id="department" class="error-message">
+                                    El campo es olbigatorio
+                                </small>
+                                }
+                            }
+    
+                        </div>
+    
+                        <div class="field col" style="max-width: 50%;">
+                            <label for="city" [class]="submitted && f['city'].errors?'error-label':''">Ciudad</label>
+    
+                            <div>
+                                <p-dropdown id="city"  [options]="cities" [(ngModel)]="selectedCity" 
+                                placeholder="Selecciona" formControlName="city" optionLabel="location_name" 
+                                [class]="submitted && f['city'].errors?'ng-invalid ng-dirty dropdown-size':'dropdown-size'"
+                                emptyMessage="Selecciona un departamento"
+                                optionValue="id_location">
+                            </p-dropdown>
+                            </div>
+    
+                            @if (submitted && f['city'].errors) {
+                                @if (f['city'].errors['required']) {
+                                <small id="city" class="error-message">
+                                    El campo es olbigatorio
+                                </small>
+                                }
+                            }
+    
+    
+                        </div>
+                    </div>
+                    <p-divider></p-divider> 
                     <div class="flex flex-column">
                         <h3>Imagenes del producto.</h3>
                         <label class="aditional-data-label">Selecciona imagenes</label>

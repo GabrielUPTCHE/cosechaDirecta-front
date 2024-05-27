@@ -1,0 +1,28 @@
+.product-action {
+    display: flex;
+    ::ng-deep .p-button {
+        display: grid;
+        width: 100%;
+    }
+}
+
+.button-add{
+    width: 100%;
+    margin: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h4 {
+        text-align: center;
+        font-size: larger;
+        font-weight: 400;
+    }
+}
+
+span{
+    color: green;
+}

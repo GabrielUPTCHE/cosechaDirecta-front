@@ -5,22 +5,29 @@ import { RippleModule } from 'primeng/ripple';
 import { ModalRegisterComponent } from './modal-register/modal-register.component';
 import { ProductComponent } from './product/product.component';
 import { CardModule } from 'primeng/card';
+import { PrimengModule } from '../shared/primeng/primeng.module';
+import { ModalAddCartComponent } from './modal-add-cart/modal-add-cart.component';
+import { ProductCartComponent } from './product-cart/product-cart.component';
 
 
 
 @NgModule({
   declarations: [
     ModalRegisterComponent,
-    ProductComponent
+    ProductComponent,
+    ModalAddCartComponent,
+    ProductCartComponent
   ],
   exports:[
-    ProductComponent
+    ProductComponent,
+    ProductCartComponent
   ],
   imports: [
     CommonModule,
     ButtonModule,
     RippleModule,
-    CardModule
+    CardModule,
+    PrimengModule
   ]
 })
 export class ComponentsModule { }

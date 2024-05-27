@@ -1,0 +1,30 @@
+.product-card {
+    margin: 1rem;
+}
+
+.content{
+    display: flex;
+}
+
+img{
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-info {
+    margin: 0rem 2rem  0rem 2rem;
+}
+
+.update-cart-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions{
+    position: relative;
+    top: 50px;
+}
