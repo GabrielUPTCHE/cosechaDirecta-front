@@ -30,7 +30,6 @@ export class ProductCartComponent implements OnInit {
   }
 
   onChangeInput(event: any) {
-    console.log('aaaaa', this.setListProductCart);
     this.setListProductCart.set({product:this.product, orderQuantity: this.orderQuantity})
   }
 

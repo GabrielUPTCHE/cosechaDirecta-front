@@ -1,11 +1,26 @@
-<div class="orders">
-    <p-card>
-        <div class="orders-content">
-            @for (order of orders; track $index) {
-                <app-order [order]="order">
-
-                </app-order>
+@if (loggedUser.role === 'N') {
+    <div class="orders">
+        <p-card>
+            <div class="orders-content">
+                @for (order of orders; track $index) {
+                    <app-order [order]="order">
+    
+                    </app-order>
+                }
+            </div>
+        </p-card>
+    </div>
+    
+}
+@if (loggedUser.role === 'P') {
+    <div class="order-detail">
+        <p-card>
+        @for (saleDetail of salesDetails; track $index) {
+            <div class="product-card">
+                    <app-order-detail-product [saleDetail]="saleDetail"></app-order-detail-product>
+                    
+                </div>
             }
-        </div>
-    </p-card>
-</div>
+        </p-card>
+    </div>
+}

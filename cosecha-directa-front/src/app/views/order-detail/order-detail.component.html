@@ -1,3 +1,10 @@
-<div>
-    <p-card></p-card>
+<div class="order-detail">
+    <p-card>
+    @for (saleDetail of salesDetails; track $index) {
+        <div class="product-card">
+                <app-order-detail-product [saleDetail]="saleDetail"></app-order-detail-product>
+                
+            </div>
+        }
+    </p-card>
 </div>

@@ -40,7 +40,6 @@ export class PaymentComponent implements OnInit {
 
   doPayment(): void {
     this.saleService.createSale(this.getSaleDto()).subscribe( response =>{
-      console.log('el response:', response);
     })
   }
 
@@ -64,7 +63,7 @@ export class PaymentComponent implements OnInit {
       return {
         unit_price: element.product.inventory[0].unit_price,
         amount: element.orderQuantity,
-        id_sale: 0,
+        id_sales: 0,
         id_product:  element.product.id_product,
         id_user_producer: element.product.inventory[0].user.id_user
       }

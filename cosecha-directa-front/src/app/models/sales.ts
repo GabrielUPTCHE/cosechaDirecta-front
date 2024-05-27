@@ -11,7 +11,7 @@ export interface Sale  {
 export interface SaleDetail {
     unit_price: number;
     amount: number;
-    id_sale: number;
+    id_sales: number;
     id_product: number;
     id_user_producer: number;
 }

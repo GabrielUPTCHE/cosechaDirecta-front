@@ -48,7 +48,6 @@ export class AppComponent implements OnInit{
         return {label:'login', routerLink:'login'}
       }else{
         route += `${element}/`
-        console.log('el route:', route);
         return {label:element, routerLink:route}
       }
     })

@@ -1,0 +1,25 @@
+<div>
+    <p-card>
+        <h1>Pedido# {{saleDetail.id_sales}}</h1>
+        <div class="content">
+                    <img [src]="product.product_images[0].url_image" alt="">
+                    <div class="product-info">
+                        <h3>{{product.product_name}}</h3>
+                        <p>Cantidad de la orden: {{saleDetail.amount}} {{product.unit_measure}}</p>
+                        <p>Se entrega: {{product.inventory[0].next_delivery_date | date}}</p>
+                        <p>Productor: {{product.inventory[0].user.fullname}}</p>
+                        <p>Total: <span>${{product.inventory[0].unit_price *saleDetail.amount| number }}</span></p>
+                        <p-divider></p-divider>
+                        <p>Disponibles {{product.inventory[0].quantity_available}} {{product.unit_measure}}</p>
+                    </div>
+        
+                    <div class="update-cart-product">
+                        
+                    <div class="actions">
+                        <p-button label="Ver el producto" (click)="goToProductDetail()" [raised]="true" severity="success"
+                         ngClass="w-full"></p-button>
+                    </div>
+                    </div>
+                </div>
+    </p-card>
+</div>

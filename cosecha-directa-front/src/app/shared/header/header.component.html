@@ -14,8 +14,8 @@
         </ng-template>
         <ng-template pTemplate="end">
             <div class="flex align-items-center gap-2">
-                <input type="text" pInputText placeholder="Search" class="w-8rem sm:w-auto" />
-                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+                <p-avatar [image]="loggedUser.user_img" size="xlarge" shape="circle" />
+                <p-button [routerLink]="'dashboard-usuario/editar-usuario'" [label]="loggedUser.fullname" [link]="true" />
             </div>
         </ng-template>
     </p-menubar>

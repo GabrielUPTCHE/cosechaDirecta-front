@@ -25,4 +25,8 @@ export class SalesService {
     return this.httpClient.get<SaleDetail[]>(`${this.url}payments/get-sale-details/${id_sales}`)
   }
 
+  getSalesDetailByProducer(id_producer: number): Observable<SaleDetail[]> {
+    return this.httpClient.get<SaleDetail[]>(`${this.url}payments/get-sale-details-by-producer/${id_producer}`)
+  }
+
 }

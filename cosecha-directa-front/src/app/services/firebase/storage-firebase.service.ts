@@ -25,7 +25,6 @@ export class StorageFirebaseService {
   
   async getImagesProduct(idProduct:string,username:string, productName:string):Promise< string[] >{
     let urlImages:string[] = [];
-    console.log(`products/${username}}/${productName}-${idProduct}`);
     const storageRef = ref(this.storage,`products/${username}/${productName}-${idProduct}`);
     const images = await listAll(storageRef);
     for (const image of images.items) {
